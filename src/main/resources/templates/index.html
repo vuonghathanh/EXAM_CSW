@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--css-->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+
+
+</head>
+<body>
+    <div class="container">
+        <a th:href="@{'/create'}">
+            <butoon class="btn btn-primary"> Create</butoon>
+        </a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product : ${products}">
+                <th scope="row" th:text="${product.id}"></th>
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.quantity}"></td>
+                <td>
+                    <a th:href="@{'/edit?id=' + ${product.id}}">
+                        <button class="btn btn-warning">
+                            Eidt
+                        </button>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

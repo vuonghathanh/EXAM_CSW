@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Home</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <!--css-->
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet"/>
+
+
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <form method="post" th:action="@{/create}" th:object="${product}">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" name="name" id="name" th:field="${product.name}">
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Price</label>
+          <input type="text" class="form-control" name="price" id="phone" th:field="${product.price}">
+        </div>
+        <div class="mb-3">
+          <label for="age" class="form-label">Quantity</label>
+          <input type="text" class="form-control" name="quantity" id="age" th:field="${product.quantity}">
+        </div>
+        <button type="submit" class="btn btn-primary">Add product</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+</body>
+
+</html>
